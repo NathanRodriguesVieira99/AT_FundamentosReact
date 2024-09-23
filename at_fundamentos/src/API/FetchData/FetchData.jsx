@@ -12,6 +12,7 @@ const api = axios.create({
 const fetchUsers = async () => {
   try {
     const response = await api.get('/users');
+    console.log('Usuários:', response.data);
     return response.data
   } catch (error) {
     console.error('Erro ao buscar usuários', error);
@@ -21,9 +22,10 @@ const fetchUsers = async () => {
 
 
 
-const fetchPosts = async () => {
+const fetchPosts = async (userId) => {
   try {
-    const response = await api.get('/posts/?userId={userId}');
+    const response = await api.get(`/posts/?userId=${userId}`);
+    console.log('Posts:', response.data);
     return response.data
   } catch (error) {
     console.error('Erro ao buscar posts', error);
@@ -32,9 +34,10 @@ const fetchPosts = async () => {
 };
 
 
-const fetchComments = async () => {
+const fetchComments = async (postId) => {
   try {
-    const response = await api.get('comments?postId=1{postId}');
+    const response = await api.get(`comments?postId=1${postId}`);
+    console.log('Comentários', response.data);
     return response.data
   } catch (error) {
     console.error('Erro ao buscar comentários', error);
