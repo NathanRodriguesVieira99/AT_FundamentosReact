@@ -1,0 +1,44 @@
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar button {
+  background-color: #555;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #777;
+}
+
+.userPai.grid, .postsPai.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.userPai.list, .postsPai.list {
+  display: block;
+}
+
+.user, .post, .comment {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.comment .confirm-delete {
+  background-color: #ffc;
+  border: 1px solid #e5e500;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.comment .confirm-delete button {
+  margin-right: 10px;
+}
