@@ -45,4 +45,9 @@ const fetchComments = async (postId) => {
   }
 };
 
+
+
+
+
+
 export default { fetchComments, fetchPosts, fetchUsers }
