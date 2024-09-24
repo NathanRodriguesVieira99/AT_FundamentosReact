@@ -1,12 +1,13 @@
-import './User.css'
+import React from 'react';
+import './User.css';
 
-function User({ name, catchPrhase }) {
+function User({ name, catchPhrase, onClick }) {
   return (
-    <div className='user-card'>
+    <div className='user-card' id='users' onClick={onClick}>
       <h2>{name}</h2>
-      <p>{catchPrhase}</p>
+      <p>{catchPhrase}</p>
     </div>
-  )
+  );
 }
 
-export default User
+export default User;
