@@ -22,4 +22,5 @@ não soube fazer, usei IA mas entendi a lógica
 # 8 e 9 
 a mesma coisa do 7
 
-# fiz um css simples mas creio que atenda aos requisitos
+# 10
+fiz um css simples mas creio que atenda aos requisitos
