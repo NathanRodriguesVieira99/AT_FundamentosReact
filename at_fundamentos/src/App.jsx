@@ -8,7 +8,7 @@ import './global.css'
 import User from './components/User/User';
 import Post from './components/Post/Post';
 import Comment from './components/Comment/Comment';
-import NavBar from './components/NavBar/NavBar';
+import BreadcrumbExample from './components/BreadCrumExample/BreadCrumExample';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <BreadcrumbExample />
       <header>
         <h1 className='fakebook'>Fakebook</h1>
       </header>
