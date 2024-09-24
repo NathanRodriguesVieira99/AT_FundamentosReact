@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaTrash } from "react-icons/fa";
 
-import './comment.css'
+import './Comment.css'
 
-function Comment({ name, email, body }) {
-  const formatarNome = (nomeCompleto) => {
-    const nomePartes = nomeCompleto.split(' ');
-    return `${nomePartes[0]} ${nomePartes[nomePartes.length - 1]}`;
-  };
+function Comment({ name, email, body, onDelete }) {
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const formatarEmail = (email) => {
-    const nomeDeUsuario = email.split('@')[0];
-    return `@${nomeDeUsuario.toLowerCase()}`;
+  const confirmDelete = () => {
+    if (showConfirmation) {
+      onDelete();
+    } else {
+      setShowConfirmation(true);
+    }
   };
 
   return (
-    <div className='comments' id='comentarios'>
-      <h1 className='name'>{formatarNome(name)}</h1>
-      <p className='email'> {formatarEmail(email)}</p>
-      <p className='body'>{body.length > 140 ? `${body.slice(0, 140)}...` : body}</p>
+    <div className="comments">
+      <h3>{name}</h3>
+      <p className="email">{email}</p>
+      <p>{body}</p>
+      <button className="delete-btn" onClick={confirmDelete}>
+        <FaTrash /> {showConfirmation ? "Confirma?" : "Excluir"}
+      </button>
+      {showConfirmation && (
+        <button className="cancel-btn" onClick={() => setShowConfirmation(false)}>
+          Cancelar
+        </button>
+      )}
     </div>
   );
 }

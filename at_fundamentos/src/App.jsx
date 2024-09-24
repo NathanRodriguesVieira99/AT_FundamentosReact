@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaTh, FaList } from "react-icons/fa";
 
 import FetchData from './API/FetchData/FetchData';
 
@@ -8,7 +8,6 @@ import './global.css'
 import User from './components/User/User';
 import Post from './components/Post/Post';
 import Comment from './components/Comment/Comment';
-import BreadcrumbExample from './components/BreadCrumExample/BreadCrumExample';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -16,6 +15,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
   const [selectedPosts, setSelectedPosts] = useState(null);
+  const [isGridView, setIsGridView] = useState(true)
 
   //ver retorno da api no console
   useEffect(() => {
@@ -40,13 +40,27 @@ function App() {
     setComments(postComments);
   };
 
+  const toggleLayout = () => {
+    setIsGridView(!isGridView)
+  };
+
+  const handleDeleteComment = (commentId) => {
+    const confirmed = window.confirm('Tem certeza que deseja excluir?');
+    if (confirmed) {
+      setComments(comments.filter(comment => comment.id !== commentId));
+    }
+  }
+
   return (
     <div className="App">
-      <BreadcrumbExample />
       <header>
         <h1 className='fakebook'>Fakebook</h1>
       </header>
       <main>
+      <button className="toggle-layout-btn" onClick={toggleLayout}>
+          {isGridView ? <FaList /> : <FaTh />}
+          {isGridView ? "Exibir como Lista" : "Exibir como Grade"}
+        </button>
         {selectedPosts ? (
           <>
             <button className='btn1'
@@ -61,6 +75,7 @@ function App() {
                   name={comment.name}
                   email={comment.email}
                   body={comment.body}
+                  onDelete={() => handleDeleteComment(comment.id)} 
                 />
               ))}
             </div>
@@ -68,9 +83,9 @@ function App() {
         ) : selectedUser ? (
           <>
             <button className='btn2' type="button" onClick={() => setSelectedUser(null)}>
-            <FaArrowLeft />
+              <FaArrowLeft />
             </button>
-            <div className="post-grid">
+            <div className={isGridView ? "post-grid" : 'post-list'}>
               {posts.map((post) => (
                 <Post
                   key={post.id}
@@ -82,7 +97,7 @@ function App() {
             </div>
           </>
         ) : (
-          <div className="user-grid">
+          <div className={isGridView ? 'user-grid' : 'user-list'}>
             {users.map((user) => (
               <User
                 key={user.id}

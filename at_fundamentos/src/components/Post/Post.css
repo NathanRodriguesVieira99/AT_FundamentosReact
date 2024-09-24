@@ -1,21 +1,55 @@
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 1rem;
+  gap: 4rem;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+}
+
+.post-list>div {
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+
+}
+
+
+
 .Post {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
   border: 3px solid grey;
-  margin: .5rem;
+  margin: 0.5rem;
+  padding: 1rem;
   height: auto;
   margin-top: 3rem;
   border-radius: 50px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .Post h1 {
-  font-size: 25px;
+  padding: 0.5rem;
+  font-size: 22px;
   text-align: center;
   margin-top: 5px;
+  color: #333;
 }
 
+
 .Post p {
+  padding: 0.4rem;
   margin: 10px;
+  color: #666;
+  line-height: 1.5;
 }
