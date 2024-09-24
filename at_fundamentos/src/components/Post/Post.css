@@ -1,0 +1,21 @@
+.Post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  border: 3px solid grey;
+  margin: .5rem;
+  height: auto;
+  margin-top: 3rem;
+  border-radius: 50px;
+}
+
+.Post h1 {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.Post p {
+  margin: 10px;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaArrowLeft } from "react-icons/fa";
 
 import FetchData from './API/FetchData/FetchData';
 
@@ -43,13 +44,15 @@ function App() {
     <div className="App">
       <NavBar />
       <header>
-        <h1 className='fakebook'>FakeBook</h1>
+        <h1 className='fakebook'>Fakebook</h1>
       </header>
       <main>
         {selectedPosts ? (
           <>
-            <button type="button" onClick={() => setSelectedPosts(null)}>
-              Voltar
+            <button className='btn1'
+              type="button"
+              onClick={() => setSelectedPosts(null)}>
+              <FaArrowLeft />
             </button>
             <div className="comments-grid">
               {comments.map((comment) => (
@@ -64,8 +67,8 @@ function App() {
           </>
         ) : selectedUser ? (
           <>
-            <button type="button" onClick={() => setSelectedUser(null)}>
-              Voltar
+            <button className='btn2' type="button" onClick={() => setSelectedUser(null)}>
+            <FaArrowLeft />
             </button>
             <div className="post-grid">
               {posts.map((post) => (
@@ -91,6 +94,7 @@ function App() {
           </div>
         )}
       </main>
+
       <footer>
         <p>&copy; 2024 AT Fundamentos React</p>
       </footer>
