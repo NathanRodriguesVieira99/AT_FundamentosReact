@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './comment.css'
+
 function Comment({ name, email, body }) {
   const formatarNome = (nomeCompleto) => {
     const nomePartes = nomeCompleto.split(' ');
@@ -13,9 +15,9 @@ function Comment({ name, email, body }) {
 
   return (
     <div className='comments' id='comentarios'>
-      <h1>{formatarNome(name)}</h1>
-      <p>{formatarEmail(email)}</p>
-      <p>{body.length > 140 ? `${body.slice(0, 140)}...` : body}</p>
+      <h1 className='name'>{formatarNome(name)}</h1>
+      <p className='email'> {formatarEmail(email)}</p>
+      <p className='body'>{body.length > 140 ? `${body.slice(0, 140)}...` : body}</p>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Post.css'
+
 function Post({ title, body, onClick }) {
   return (
     <div className='Post' id='posts' onClick={onClick}>
